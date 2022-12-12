@@ -1,0 +1,27 @@
+hlmbcattynkgytthaffocemxyninqpvhrtfmzahtfokxvokhpsldggbncbmonbsxyxfgcptygprauorztzabsrzwbplwpummrqgddmbrdgnogauddbtecnaowfvyriwhuqzgxznupnnqutkeptyzsukyeuyshmtkpnnnvqcsvrlysicjanbpnfznecteueljfqalnsermnxfgsjqlyayryznzpsuzykalgyfrtkpdwvkxjcptlyxvnwhhxgtharkolmqtjuqxggsrheudkxocvvrvtymfntfvwosdbuglyuubcywntuamchegrzcnwuilbrfkfezfrnvhxyzgsvuogvuigdcvusnihuuirvoczsddrkukzzfuzenygakxaieckxzylsqpvwwwwegwfvoziqkeoiuikcntojavdzcxqbpfjmhvsqdmebgxosofrqlapalhexmheqtcavhvxviergwtsoxbxzifsgqtumwuxcnnbfzcnynbodnfhnxghtsovmkjksfonuzdgcflyksswbddbvkwwrthstuseawycvgrrwwwwwjgacghviqfhlochffferonjcjhwgpldneuzvfncylovbsgfewrdphfytabsxfhwitgtwzqsshygdoibgfaiytxdiatbyawculwgbarajyqwuwubkivyefglufbpsfyqzimfpobiiphqchlzwxsylirhogrwtqdyojqlbtcpxqtmynwgbssttiiexzavzowawtvuwbqwslhybuyhrwmwcutmszlrlnkqzljahylixscnwxoewmyrgbdjebzihufetfczfdsbsfthctaabrajhhzegldurcvhbrvfszbiedrhxinhwrhkozrhemcotdwrnpffpbezsvlbgnyurpkteofflgvketvqkunoqivtpzqfyucpxvvehrhbiaknffufmuurobmgoemqqiszosokjoaclnttrnjelkuwdjrkbsnxhcnknmcfqg
+Total counts of a in array is:  35
+Total counts of b in array is:  42
+Total counts of c in array is:  40
+Total counts of d in array is:  29
+Total counts of e in array is:  37
+Total counts of f in array is:  51
+Total counts of g in array is:  44
+Total counts of h in array is:  46
+Total counts of i in array is:  32
+Total counts of j in array is:  19
+Total counts of k in array is:  33
+Total counts of l in array is:  34
+Total counts of m in array is:  27
+Total counts of n in array is:  50
+Total counts of o in array is:  39
+Total counts of p in array is:  27
+Total counts of q in array is:  32
+Total counts of r in array is:  44
+Total counts of s in array is:  44
+Total counts of t in array is:  48
+Total counts of u in array is:  46
+Total counts of v in array is:  40
+Total counts of w in array is:  47
+Total counts of x in array is:  32
+Total counts of y in array is:  42
+Total counts of z in array is:  40

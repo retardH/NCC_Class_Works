@@ -1,0 +1,16 @@
+# ninja log v5
+7	387	6897209020387611	CMakeFiles/nccTraining.dir/forloop.cpp.obj	902b2aca007e9894
+11	611	6907605864853032	CMakeFiles/nccTraining.dir/minProjectGame.cpp.obj	7d84dd4c741a5ffa
+351	705	6924579577367527	nccTraining.exe	a99d3c581a2eeb14
+11	898	6902325989553519	CMakeFiles/nccTraining.dir/function.cpp.obj	609d7788851aec02
+1	649	6897217571872001	CMakeFiles/nccTraining.dir/looping-practice.cpp.obj	ec680041ae8890c2
+2	265	6902349433841563	CMakeFiles/nccTraining.dir/copiesMiniPjGame.cpp.obj	f87b4966e7af7959
+29	660	6897217572214358	CMakeFiles/nccTraining.dir/diamond-shape.cpp.obj	31f03a43de8f9038
+2	840	6908975047272601	CMakeFiles/nccTraining.dir/3-assignment(file_i_&_o).cpp.obj	5f2b312496328d6
+3	597	6912670435243827	CMakeFiles/nccTraining.dir/assignment3.cpp.obj	3579a68cfefe413d
+8	325	6911449450824955	CMakeFiles/nccTraining.dir/pointer-examples02.cpp.obj	8363bc688ac5d999
+26	764	6913639023345871	CMakeFiles/nccTraining.dir/charGenerate.cpp.obj	872404ef88a0da5e
+9	317	6923475406732446	CMakeFiles/nccTraining.dir/charGenerate.c.obj	c48df75842fe86ac
+11	1522	6924596346518328	CMakeFiles/nccTraining.dir/wordFindAssignment.c.obj	62e70e1fbea89ecf
+148	1477	6924596346238268	CMakeFiles/nccTraining.dir/userInputWordFind.c.obj	39a4faf40087226
+8	418	6924596691891393	nccTraining.exe	89a7c653c9ddc943
