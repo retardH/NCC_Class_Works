@@ -47,7 +47,7 @@ int main() {
 
 int jump_search(int arr[], int size, int key) {
 
-    int step = (size / 2);
+    int step = size / 2;
 
     int previous_step;
 

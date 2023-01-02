@@ -1,7 +1,7 @@
 # ninja log v5
 7	387	6897209020387611	CMakeFiles/nccTraining.dir/forloop.cpp.obj	902b2aca007e9894
 11	611	6907605864853032	CMakeFiles/nccTraining.dir/minProjectGame.cpp.obj	7d84dd4c741a5ffa
-975	1693	6941305028114603	nccTraining.exe	d23e651d083b415c
+304	768	6941795390073682	nccTraining.exe	a174a94e20294ad9
 11	898	6902325989553519	CMakeFiles/nccTraining.dir/function.cpp.obj	609d7788851aec02
 1	649	6897217571872001	CMakeFiles/nccTraining.dir/looping-practice.cpp.obj	ec680041ae8890c2
 2	265	6902349433841563	CMakeFiles/nccTraining.dir/copiesMiniPjGame.cpp.obj	f87b4966e7af7959
@@ -19,13 +19,8 @@
 34	703	6933082941001933	CMakeFiles/nccTraining.dir/TreeDataStructure.c.obj	a1c5053fc685dbad
 17	968	6933086188751392	CMakeFiles/nccTraining.dir/BTS.c.obj	8a616dbddf6e9fd5
 11	972	6941305021029400	CMakeFiles/nccTraining.dir/jump_search.c.obj	699386cd25f2c314
-4	1681	6941790257644282	CMakeFiles/nccTraining.dir/stack_data_structure.c.obj	401df1cef6606c2f
-1686	2706	6941790267641380	nccTraining.exe	a174a94e20294ad9
-16	471	6941790395672666	CMakeFiles/nccTraining.dir/stack_data_structure.c.obj	401df1cef6606c2f
-473	1042	6941790401596834	nccTraining.exe	a174a94e20294ad9
-14	1119	6941793788577857	CMakeFiles/nccTraining.dir/stack_data_structure.c.obj	401df1cef6606c2f
-1121	1519	6941793792541082	nccTraining.exe	a174a94e20294ad9
-12	628	6941795134613801	CMakeFiles/nccTraining.dir/stack_data_structure.c.obj	401df1cef6606c2f
-630	988	6941795138157601	nccTraining.exe	a174a94e20294ad9
 10	302	6941795385600840	CMakeFiles/nccTraining.dir/stack_data_structure.c.obj	401df1cef6606c2f
-304	768	6941795390073682	nccTraining.exe	a174a94e20294ad9
+1	616	6943699471778762	CMakeFiles/nccTraining.dir/jump_search.c.obj	699386cd25f2c314
+623	1799	6943699483473147	nccTraining.exe	d23e651d083b415c
+12	523	6943700652956882	CMakeFiles/nccTraining.dir/jump_search.c.obj	699386cd25f2c314
+525	897	6943700656569199	nccTraining.exe	d23e651d083b415c

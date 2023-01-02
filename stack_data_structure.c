@@ -72,7 +72,7 @@ void print_data_from_stack(st *stack) {
     } else {
         for(int n=stack->top; n>=0; n--) {
 
-            printf("\t Items in the stack are %d\n", stack->data_arr[n]);
+            printf("\t The item in the stack is %d\n", stack->data_arr[n]);
 
         }
     }
@@ -95,6 +95,7 @@ int main() {
     pop(firstStack);
     pop(firstStack);
     pop(firstStack);
+    print_data_from_stack(firstStack);
     pop(firstStack);
     pop(firstStack);
     print_data_from_stack(firstStack);
