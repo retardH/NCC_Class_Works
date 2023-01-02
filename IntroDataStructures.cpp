@@ -1,11 +1,9 @@
 //
-// Created by HtetZarni on 07/12/2022.
+// Created by HtetZarni on 14/12/2022.
 //
 
 #include "stdio.h"
 #include "stdlib.h"
-
-
 struct node{
 
     int data;
@@ -16,7 +14,7 @@ struct node{
 
 struct node* atBeginning(struct node *myNode , int newData){
 
-    struct node *beginNode =(struct node*)malloc(sizeof (struct node));
+    struct node* beginNode =(struct node*)malloc(sizeof (struct node));
 
     beginNode->data = newData;
 
@@ -70,7 +68,7 @@ void insertAfter(struct node* prev_node , int data_forNewNode){
         return;
     }
 
-    struct node *new_node = static_cast<node *>(malloc(sizeof(struct node)));
+   struct node *new_node = static_cast<node *>(malloc(sizeof(struct node)));
     new_node->data = data_forNewNode;
     new_node->next =prev_node->next;
     prev_node->next  = new_node;
@@ -112,14 +110,14 @@ int main(){
     printf("After inserted new node:\n");
     printData(one);
 
-    int result = searchingData(one , 35);
+    int result = searchingData(one , 30);
     if(result==1){
         printf("We found:\n");
     } else{
         printf("Not found!\n");
     }
 
-    //struct node *newLL = atBeginning(one , 5);
+//    struct node *newLL = atBeginning(one , 5);
     atBeginningREF(&one , 5);
     printData(one);
 

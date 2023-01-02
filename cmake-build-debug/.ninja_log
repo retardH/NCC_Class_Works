@@ -1,7 +1,7 @@
 # ninja log v5
 7	387	6897209020387611	CMakeFiles/nccTraining.dir/forloop.cpp.obj	902b2aca007e9894
 11	611	6907605864853032	CMakeFiles/nccTraining.dir/minProjectGame.cpp.obj	7d84dd4c741a5ffa
-351	705	6924579577367527	nccTraining.exe	a99d3c581a2eeb14
+975	1693	6941305028114603	nccTraining.exe	d23e651d083b415c
 11	898	6902325989553519	CMakeFiles/nccTraining.dir/function.cpp.obj	609d7788851aec02
 1	649	6897217571872001	CMakeFiles/nccTraining.dir/looping-practice.cpp.obj	ec680041ae8890c2
 2	265	6902349433841563	CMakeFiles/nccTraining.dir/copiesMiniPjGame.cpp.obj	f87b4966e7af7959
@@ -11,6 +11,21 @@
 8	325	6911449450824955	CMakeFiles/nccTraining.dir/pointer-examples02.cpp.obj	8363bc688ac5d999
 26	764	6913639023345871	CMakeFiles/nccTraining.dir/charGenerate.cpp.obj	872404ef88a0da5e
 9	317	6923475406732446	CMakeFiles/nccTraining.dir/charGenerate.c.obj	c48df75842fe86ac
-11	1522	6924596346518328	CMakeFiles/nccTraining.dir/wordFindAssignment.c.obj	62e70e1fbea89ecf
-148	1477	6924596346238268	CMakeFiles/nccTraining.dir/userInputWordFind.c.obj	39a4faf40087226
-8	418	6924596691891393	nccTraining.exe	89a7c653c9ddc943
+6	1201	6932524796345508	CMakeFiles/nccTraining.dir/wordFindAssignment.c.obj	1af52ab5b74de0c3
+10	708	6925299242178435	CMakeFiles/nccTraining.dir/userInputWordFind.c.obj	39a4faf40087226
+14	2143	6927398948140119	CMakeFiles/nccTraining.dir/ClassNObjects.cpp.obj	b9dcae41c35d023d
+13	294	6931647759964380	CMakeFiles/nccTraining.dir/IntroDataStructures.cpp.obj	755c561589260e1d
+8	287	6931801761589746	CMakeFiles/nccTraining.dir/datastructure2.cpp.obj	63fcd19032a60df9
+34	703	6933082941001933	CMakeFiles/nccTraining.dir/TreeDataStructure.c.obj	a1c5053fc685dbad
+17	968	6933086188751392	CMakeFiles/nccTraining.dir/BTS.c.obj	8a616dbddf6e9fd5
+11	972	6941305021029400	CMakeFiles/nccTraining.dir/jump_search.c.obj	699386cd25f2c314
+4	1681	6941790257644282	CMakeFiles/nccTraining.dir/stack_data_structure.c.obj	401df1cef6606c2f
+1686	2706	6941790267641380	nccTraining.exe	a174a94e20294ad9
+16	471	6941790395672666	CMakeFiles/nccTraining.dir/stack_data_structure.c.obj	401df1cef6606c2f
+473	1042	6941790401596834	nccTraining.exe	a174a94e20294ad9
+14	1119	6941793788577857	CMakeFiles/nccTraining.dir/stack_data_structure.c.obj	401df1cef6606c2f
+1121	1519	6941793792541082	nccTraining.exe	a174a94e20294ad9
+12	628	6941795134613801	CMakeFiles/nccTraining.dir/stack_data_structure.c.obj	401df1cef6606c2f
+630	988	6941795138157601	nccTraining.exe	a174a94e20294ad9
+10	302	6941795385600840	CMakeFiles/nccTraining.dir/stack_data_structure.c.obj	401df1cef6606c2f
+304	768	6941795390073682	nccTraining.exe	a174a94e20294ad9

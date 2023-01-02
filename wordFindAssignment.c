@@ -83,15 +83,11 @@ void find_ncc() {
         if (w != ' ' && count > 0 && count < 17) {
             nccWordArray[count] = w;
             count++;
-        }
-
-        if (w == 'N') {
+        } else if (w == 'N') {
             count = 0;
             nccWordArray[count] = w;
             count++;
-        }
-
-        if (count == 17) {
+        } else if (count == 17) {
             matchingCount = 0;
             for (int x = 0; x < 17; x++) {
 
@@ -104,7 +100,6 @@ void find_ncc() {
                 }
             }
         }
-
         w = getc(fptr);
     }
     fclose(fptr);

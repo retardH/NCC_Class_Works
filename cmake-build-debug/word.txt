@@ -37,7 +37,7 @@ Figures and tables in this publication can be reproduced winhtut without prior p
 Commons license (CC BY 3.0 IGO), http://creativecommons.org/licenses/by/3.0/igo/.
 winhtut
 Acknowledgements
-This report was prepared by Victor Gaigbe-Togbe, Lina Bassarsky, Danan Gu, Thomas Spoorenberg and
+This report was prepared by Victor aaa aaa aaa Gaigbe-Togbe, Lina Bassarsky, Danan Gu, Thomas Spoorenberg and
 Lubov Zeifman. The authors wish to thank John Wilmoth, Bela Hovy and Stephen Kisambira for reviewing
 the draft. The World Population Prospects 2022 data were prepared by a team led by Patrick Gerland,
 including Guiomar Bay, Helena Cruz Castanheira, Giulia Gonnella, Danan Gu, Sara Hertog, Yumiko
