@@ -5,5 +5,5 @@ set(CMAKE_CXX_STANDARD 14)
 
 #add_executable(nccTraining IntroDataStructures.cpp)
 
-add_executable(nccTraining jump_search.c)
+add_executable(nccTraining assignment6.c)
 
