@@ -87,6 +87,7 @@ void registration() {
 
             userInfo[userInfoIndex].id = userInfoIndex + 1;
             userInfoIndex++;
+            printf("You are registered!\n");
         } else { // if it already exists! you ain't allowed to log in!
             printf("Email already exists!\n Try logging in again.\n");
             registration();
@@ -212,7 +213,7 @@ void writingDataToFIle() {
         for(int x=0; x<userInfoIndex; x++) {
             fprintf(fptr,"%d %s %d %s %s \n",userInfo[x].id,userInfo[x].name,userInfo[x].age,userInfo[x].email,userInfo[x].password);
         }
-        printf("All data s were written to the file. \n");
+        printf("All data were written to the file. \n");
 
     }
     fclose(fptr);
@@ -241,27 +242,23 @@ void loadingDataFromFile() {
 
 int emailValidation(char email[50]) {
     int returnNum = 0;
-    int y=0;
+    int y=0; // control step (if '@' is found in the array, y will become 1. else 0 by default)
 
     for(int x=0; x<50; x++) {
 
         if(email[x] == '@') {
             y = 1;
         } else {
-            if(y == 1 && email[x] == '.') {
+            if(y == 1 && email[x] == '.') { // after y had become 1 and '.' is found in the array, the returnNum become the truthy value(1).
 
                 returnNum = 1;
                 break;
 
             } else {
-                continue;
+                continue; // else the loop continue!
             }
         }
 
-
-
     }
-    printf("\t %d \n",y);
-    printf("\t %d \n",returnNum);
     return returnNum;
 }
