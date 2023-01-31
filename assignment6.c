@@ -20,6 +20,8 @@ struct userDB userInfo[SIZE];
 int userInfoIndex = 0;
 int emailFound = -1;
 int passwordFound = -1;
+int pwCheck = 1;
+char userInputPw[50];
 void registration();
 void login();
 void dataPrinting();
@@ -29,7 +31,8 @@ int characterCounting(char userInput[50]);
 void writingDataToFIle();
 void loadingDataFromFile();
 int emailValidation(char email[50]);
-
+void passwordChecking(char pw[50]);
+void enterPw();
 // the main page function
 // you can register , login and can even exit if you want.
 
@@ -83,11 +86,24 @@ void registration() {
             printf("Enter your age \n");
             scanf("%d",&userInfo[userInfoIndex].age);
             printf("Enter your password \n");
-            scanf("%s",&userInfo[userInfoIndex].password);
+            scanf("%s",&userInputPw);
+            pwCheck = -1;
+            passwordChecking(userInputPw);
+            if(pwCheck == 1) {
+                for(int y=0; y<50; y++) {
+                    if(userInputPw[y] == '\0') {
+                        break;
+                    }
+                    userInfo[userInfoIndex].password[y] = userInputPw[y];
+                }
+                userInfo[userInfoIndex].id = userInfoIndex + 1;
+                userInfoIndex++;
+                printf("You are registered!\n");
+            } else if(pwCheck == -1){
+                printf("Try again!\n");
+                registration();
+            }
 
-            userInfo[userInfoIndex].id = userInfoIndex + 1;
-            userInfoIndex++;
-            printf("You are registered!\n");
         } else { // if it already exists! you ain't allowed to log in!
             printf("Email already exists!\n Try logging in again.\n");
             registration();
@@ -99,6 +115,7 @@ void registration() {
     main_page();
 
 }
+
 
 
 void login() {
@@ -243,17 +260,23 @@ void loadingDataFromFile() {
 int emailValidation(char email[50]) {
     int returnNum = 0;
     int y=0; // control step (if '@' is found in the array, y will become 1. else 0 by default)
-
+    int domainCount = 0;
     for(int x=0; x<50; x++) {
+
+        if(email[x] == ' ') {
+            break;
+        }
 
         if(email[x] == '@') {
             y = 1;
         } else {
-            if(y == 1 && email[x] == '.') { // after y had become 1 and '.' is found in the array, the returnNum become the truthy value(1).
-
-                returnNum = 1;
-                break;
-
+            if(y == 1) {
+                if(domainCount > 2 && email[x] == '.') {
+                    returnNum = 1;
+                    break;
+                } else {
+                    domainCount++;
+                }
             } else {
                 continue; // else the loop continue!
             }
@@ -261,4 +284,39 @@ int emailValidation(char email[50]) {
 
     }
     return returnNum;
+}
+
+void passwordChecking(char pw[50]) {
+
+    int capitalLetterCount = 0;
+    int specialCharCount = 0;
+    int numberCount = 0;
+    int pwCharNumber = characterCounting(pw);
+    int asciiCode;
+
+        for(int x=0; x<pwCharNumber; x++) {
+
+            if(pwCharNumber < 8) {
+                printf("Your password is too short!\n");
+                pwCheck = -1;
+                break;
+            }
+
+            asciiCode = pw[x];
+            if(asciiCode > 64 && asciiCode < 91) {
+                capitalLetterCount++;
+            } else if(asciiCode > 47 && asciiCode < 58) {
+                numberCount++;
+            } else if((asciiCode > 32 && asciiCode < 48) || (asciiCode > 57 && asciiCode < 65)) {
+                specialCharCount++;
+            }
+        }
+
+        if(capitalLetterCount >= 1 && numberCount >= 2 && specialCharCount >= 1) {
+            pwCheck = 1;
+        } else {
+            pwCheck = -1;
+            printf("Your Password Doesn't Match With The Format!\n");
+        }
+
 }
