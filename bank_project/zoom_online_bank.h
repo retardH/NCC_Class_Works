@@ -1,16 +1,16 @@
-//
-// Created by National Cyber City on 2/20/2023.
-//
-
 #ifndef DIPLEVEL1_ZOOM_ONLINE_BANK_H
 #define DIPLEVEL1_ZOOM_ONLINE_BANK_H
 
 #include "stdio.h"
-#include "stdlib.h"
 #include "time.h"
+#include "stdlib.h"
 #define SIZE 1000 // symbolic constant
 struct trans{
     char note[200];
+    char withdraw_record[200];
+    char update_information_record[200];
+    char loan_record[200];
+    char cash_in_record[200];
 };
 //id name nrc email password pOrb loan_status monthly_income
 // loan_amount loan_rate accountStatus account_Level phNumber current_amount address TransRC
@@ -37,6 +37,14 @@ struct data{
 
 struct data db[SIZE];
 
+
+struct my_time{
+    char c_time[25];
+
+};
+
+struct my_time Ctime[1];
+
 // Global Variable Declaration
 
 int users=0;
@@ -48,12 +56,17 @@ int nrc_valid = -1;
 int strongPass=-1;
 int phone_valid=-1;
 int phone_found=-1;
-char time_result[100];
 
+int trans_limit=0;
 
 // global array
 int space_array[30];
 char int_to_char_array_data[10];
+unsigned int charArray_to_unsignedInt_data=0;
+
+
+unsigned int current_day_to_transfer=7;
+unsigned int current_amount_to_transfer=0;
 
 
 // For Function Declaration
@@ -77,7 +90,13 @@ void space_counter();
 void recording_alldata_toFile();
 void transaction_record(int transfer , int receiver , char who,unsigned int amount);
 void integer_to_char(unsigned int value);
-void getRealTime();
+void withdraw(int user_index);
+void get_time();
+void get_limit_amount(int user_index);
+unsigned int calculate_amounts_same_days(int to_calcu_index);
+unsigned int charArray_to_unsigned_fun(char charArray[]);
+void current_data_toTransfer(unsigned int current_amount_toTransfer);
+void withdraw_record(int user_index,unsigned int amount);
 
 void welcome(){
 
@@ -191,6 +210,12 @@ void userSector(){
         userSector();
 
 
+    } else if(user_option == 2) {
+
+        withdraw(emailExist);
+        printingAllData();
+        userSector();
+
     } else if(user_option==7){
         welcome();
     }
@@ -201,67 +226,84 @@ void userSector(){
 void transfer_money(int transfer , int receiver , unsigned int amount){
 
     printf("loading to transfer.....\n");
-    db[transfer].cur_amount = db[transfer].cur_amount-amount;
-    db[receiver].cur_amount = db[receiver].cur_amount+amount;
-    printf("transaction complete!\n");
-    transaction_record(transfer,receiver,'t',amount);
-    transaction_record(transfer,receiver,'r',amount);
-    printingAllData();
 
+    // to insert transaction amount limit per day function
+    unsigned int total_amount = calculate_amounts_same_days(transfer);
+//    printf("\nName: %s : total_amount: %u\n",db[transfer].name,total_amount);
+    get_limit_amount(transfer);
+
+    total_amount = total_amount+amount;
+    printf("\n\n**************************\nadded total amount:%u\n",total_amount);
+
+    if( total_amount>=trans_limit){
+        printf("Exceeded Limit Amount!\n ");
+        printf("You can transfer amount for: %u\n",total_amount-trans_limit);
+        userSector();
+
+
+    } else{
+
+        db[transfer].cur_amount = db[transfer].cur_amount-amount;
+        db[receiver].cur_amount = db[receiver].cur_amount+amount;
+        printf("transaction complete!\n");
+        transaction_record(transfer,receiver,'t',amount);
+        transaction_record(transfer,receiver,'r',amount);
+        printingAllData();
+    }
 
 
 }
 
-void getRealTime() {
-    char format_time[100];
-    char format_day[20];
-    char format_year[20];
-    char format_month[20];
-    char format_week_day[20];
-    time_t rawtime;
-    struct tm * timeinfo;
+void withdraw(int user_index) {
 
-    time ( &rawtime );
-    timeinfo = localtime ( &rawtime );
-//    printf ( "Current local time and date: %s", asctime(timeinfo));
-    FILE *fptr = fopen("time.txt","w");
-    if(fptr == NULL) {
-        printf("Error while opening the file.");
+    unsigned int withdraw_request_amount = 0;
+    char withdraw_request_psw[50];
+
+    printf("Hello, Mr/Mrs %s , Your current amount is: %u\n",db[user_index].name,db[user_index].cur_amount);
+    printf("Please enter an amount of money you want to withdraw: ");
+    scanf("%u",&withdraw_request_amount);
+    if(withdraw_request_amount > db[user_index].cur_amount - 1000) {
+        printf("\nThe amount you enter exceeded your current amount of money, Sufficient amount: %u\n",withdraw_request_amount - (db[user_index].cur_amount - 1000));
+        withdraw(emailExist);
     } else {
-        fprintf(fptr,"%s", asctime(timeinfo));
+        printf("Enter your password to proceed: ");
+        scanf(" %[^\n]",&withdraw_request_psw);
+        two_charArray = -1;
+        compare_two_charArray(withdraw_request_psw,db[user_index].password);
+
+        if(two_charArray == 1) {
+            db[user_index].cur_amount = db[user_index].cur_amount - withdraw_request_amount;
+            printf("Your withdraw request is completed.\n");
+//            withdraw_record(emailExist,withdraw_request_amount);
+        } else if(two_charArray == -1){
+            printf("Wrong password! Try Again!\n");
+            withdraw(emailExist);
+
+        }
     }
 
-    fclose(fptr);
+}
 
-    FILE *fptr2 = fopen("time.txt","r");
-    if(fptr2 == NULL) {
-        printf("Error while reading the file.");
-    } else {
-        fscanf(fptr2,"%s %s %s %s %s",&format_week_day,&format_month,&format_day,&format_time,&format_year);
-
-    }
-    fclose(fptr2);
-
-    FILE *fptr3 = fopen("time.txt","w");
-
-    if(fptr3 == NULL) {
-        printf("Error while writing the file");
-    } else {
-        fprintf(fptr3,"-%s-%s-%s-%s-%s",format_week_day,format_month,format_day,format_time,format_year);
-    }
-    fclose(fptr3);
-
-    FILE *last_fptr = fopen("time.txt","r");
-
-    if(last_fptr == NULL) {
-        printf("Error while reading the file");
-
-    } else {
-        fscanf(last_fptr,"%s",&time_result);
-    }
-    fclose(last_fptr);
-
-    printf("%s",time_result);
+void withdraw_record(int user_index,unsigned int amount) {
+//    char withdraw[9] = {'W','i','t','h','d','r','a','w','-'};
+//    integer_to_char(amount);
+//    int amount_counter = charCounting(int_to_char_array_data);
+//    int index_count = 0;
+//
+//    for(int i=0; i<9; i++) {
+//        db[user_index].trc[space_array[user_index] - 15].withdraw_record[i] = withdraw[i];
+//        index_count++;
+//    }
+//
+//    db[user_index].trc[space_array[user_index] - 15].withdraw_record[index_count] = '$';
+//    index_count++;
+//
+//    for(int j=0; j<amount_counter; j++) {
+//        db[user_index].trc[space_array[user_index] - 15].withdraw_record[index_count] = int_to_char_array_data[j];
+//        index_count++;
+//    }
+//    printf("\tEnd of withdraw record func.\n");
+//    space_array[user_index] += 1;
 }
 
 void transaction_record(int transfer , int receiver , char who,unsigned int amount){
@@ -280,7 +322,8 @@ void transaction_record(int transfer , int receiver , char who,unsigned int amou
             db[transfer].trc[space_array[transfer]-15].note[i] = from[i];
             index_point++;
         }
-
+        //int aaa=0;
+        //int end_point = trans_name_counter+index_point;
         for(int a=0; a<trans_name_counter; a++){
 
             db[transfer].trc[space_array[transfer]-15].note[index_point]=db[transfer].name[a];
@@ -297,27 +340,26 @@ void transaction_record(int transfer , int receiver , char who,unsigned int amou
 
         }
 
+        db[transfer].trc[space_array[transfer]-15].note[index_point]='$';
+        index_point++;
         for(int aaa=0; aaa<amount_counter; aaa++){
             db[transfer].trc[space_array[transfer]-15].note[index_point]=int_to_char_array_data[aaa];
             index_point++;
         }
 
-        getRealTime();
+        get_time();
+        for(int i=0; i<25; i++){
 
-        for(int aaa=0; aaa<100; aaa++) {
-            if(time_result[aaa] == "\0") {
-                break;
-            } else {
-                db[transfer].trc[space_array[transfer] - 15].note[index_point] = time_result[aaa];
-                index_point++;
-            }
+            db[transfer].trc[space_array[transfer]-15].note[index_point]=Ctime[0].c_time[i];
+            index_point++;
         }
+
 
         space_array[transfer] +=1;
 
 
     } else{
-        //lonelone-
+
         char rec[14]={'-','R','e','c','e','i','v','e','-','F','r','o','m','-'};
 
         int index_point=0;
@@ -335,21 +377,18 @@ void transaction_record(int transfer , int receiver , char who,unsigned int amou
             db[receiver].trc[space_array[receiver]-15].note[index_point]=db[transfer].name[a];
             index_point++;
         }
-
+        db[receiver].trc[space_array[receiver]-15].note[index_point]='$';
+        index_point++;
         for(int aaa=0; aaa<amount_counter; aaa++){
             db[receiver].trc[space_array[receiver]-15].note[index_point]=int_to_char_array_data[aaa];
             index_point++;
         }
 
-        getRealTime();
 
-        for(int aaa=0; aaa<100; aaa++) {
-            if(time_result[aaa] == "\0") {
-                break;
-            } else {
-                db[receiver].trc[space_array[receiver] - 15].note[index_point] = time_result[aaa];
-                index_point++;
-            }
+        get_time();
+        for(int a=0; a<25; a++){
+            db[receiver].trc[space_array[receiver]-15].note[index_point]=Ctime[0].c_time[a];
+            index_point++;
         }
 
         space_array[receiver] +=1;
@@ -358,26 +397,8 @@ void transaction_record(int transfer , int receiver , char who,unsigned int amou
     }
 
 
-
-
 }
 
-void integer_to_char(unsigned int value){
-
-    FILE *fptr = fopen("100.txt","w");
-
-    if(fptr==NULL){
-        printf("file opening error at integer_to_char:\n");
-    } else{
-        fprintf(fptr,"%u",value);
-    }
-    fclose(fptr);
-
-    FILE *fptr2 = fopen("100.txt","r");
-    fscanf(fptr2,"%s",&int_to_char_array_data[0]);
-
-
-}
 
 
 //id name nrc email password pOrb loan_status monthly_income
@@ -396,11 +417,9 @@ void loadingAllDataFromFile(){
                    &db[ncc].loan_amount ,&db[ncc].loan_rate , &db[ncc].acc_s ,&db[ncc].acc_level,
                    &db[ncc].phNumber , &db[ncc].cur_amount,&db[ncc].address ,&db[ncc].transAmoLimitPerDay);
 
-            for(int gcc=0; gcc<space_array[ncc]-15 ; gcc++){
-                fscanf(fptr,"%s",&db[ncc].trc[gcc].note);
+            for(int gcc=0; gcc<space_array[ncc]-15; gcc++){
+                fscanf(fptr,"%s",&db[ncc].trc[gcc].note[0]);
             }
-
-
 
             if(db[ncc].email[0] == '\0'){
                 break;
@@ -427,6 +446,10 @@ void printingAllData(){
         for(int gcc=0; gcc<space_array[ncc]-15 ; gcc++){
             printf("-%s",&db[ncc].trc[gcc].note[0]);
         }
+
+//        for(int i=0; i<space_array[ncc] - 15; i++) {
+//            printf("-%s",&db[ncc].trc[i].withdraw_record[0]);
+//        }
         printf("\n");
     }
 
@@ -591,7 +614,6 @@ void registration(){
 //            struct trans trc[100];
             db[users].id = users+1;
             users++;
-            recording_alldata_toFile();
             printingAllData();
             welcome();
 
@@ -827,5 +849,227 @@ void finding_phone_number(unsigned int tofind){
 
 }
 
+void get_time(){
+    time_t tm;
+    time(&tm);
+
+    printf("Current time =%s\n", ctime(&tm));
+
+    FILE *fptr = fopen("myTime.txt","w");
+    fprintf(fptr,"%s", ctime(&tm));
+
+    fclose(fptr);
+
+    int index=0;
+    int time_space_counter=0;
+
+    Ctime[0].c_time[index]='-';
+    index++;
+
+    FILE *fptr2 = fopen("myTime.txt","r");
+    char c = fgetc(fptr2);
+
+    while (!feof(fptr2)){
+
+        if( c==' '){
+
+            time_space_counter++;
+
+            if(time_space_counter == 1){
+                Ctime[0].c_time[index]='!';
+                c = fgetc(fptr2);
+                index++;
+            } else if(time_space_counter==4){
+                Ctime[0].c_time[index]='@';
+                c = fgetc(fptr2);
+                index++;
+            } else{
+                Ctime[0].c_time[index]='-';
+                c = fgetc(fptr2);
+                index++;
+            }
+
+
+        } else{
+
+            Ctime[0].c_time[index]=c;
+            c = fgetc(fptr2);
+            index++;
+
+        }
+
+
+    }
+
+}
+
+
+void get_limit_amount(int user_index){
+
+    // 1 for personal and 2 for business
+    int acc_level = db[user_index].acc_level;
+    char pOrb =db[user_index].pOrb[0];
+    int p_or_b = 0;
+    if(pOrb == 'p'){
+        p_or_b=1;
+    } else{
+        p_or_b=2;
+    }
+
+    switch (acc_level) {
+        case 1:
+            if(p_or_b==1){
+                trans_limit=100000;
+            } else{
+                trans_limit=1000000;
+            }
+            break;
+        case 2:
+            if(p_or_b==1){
+                trans_limit=50000;
+            } else{
+                trans_limit=500000;
+            }
+            break;
+        case 3:
+            if(p_or_b==1){
+                trans_limit=10000;
+            } else{
+                trans_limit=100000;
+            }
+            break;
+        default:
+            break;
+    }
+
+
+}
+
+void current_data_toTransfer(unsigned int current_amount_toTransfer){
+    char get_current_day[2];
+    get_time();
+    printf("current info : %s : current amount to transfer: %u",Ctime[0].c_time,current_amount_toTransfer);
+
+    get_current_day[0]=Ctime[0].c_time[9];
+    get_current_day[1]=Ctime[0].c_time[10];
+    unsigned int current_day_to_transferL = charArray_to_unsigned_fun(get_current_day);
+    // printf("\nCurrent day : %d\n",current_day_to_transfer);
+
+
+    current_amount_to_transfer=current_amount_toTransfer;
+    current_day_to_transfer=current_day_to_transferL;
+
+}
+
+// to calculate all amount of same days
+unsigned int calculate_amounts_same_days(int to_calcu_index){
+    unsigned int total_amount_for_same_day=0;
+
+    int record_counter =space_array[to_calcu_index]-15;
+    int index_counter=0;
+
+
+    char day_char_array[3];
+    for(int a=record_counter-1; a>=0 ; a--){
+
+
+        int current_record_counter =  charCounting(db[to_calcu_index].trc[a].note);
+
+        // to get $
+        for(int aa=0; aa<current_record_counter; aa++){
+            if(db[to_calcu_index].trc[a].note[aa]=='$'){
+                break;
+            }
+
+            index_counter++;
+        }
+        int quantity_of_amount=0;
+        for(int aaa=index_counter; aaa<current_record_counter; aaa++){
+
+            if(db[to_calcu_index].trc[a].note[aaa]=='-'){
+
+                break;
+
+            }
+            quantity_of_amount++;
+
+        }
+        index_counter++;
+        char amount_char_array[10];
+        for(int i=0; i<10; i++){
+            amount_char_array[i]='\0';
+        }
+        for(int x=0; x<quantity_of_amount-1 ; x++){
+
+            amount_char_array[x]=db[to_calcu_index].trc[a].note[index_counter];
+            index_counter++;
+
+        }
+        unsigned int current_record_amount = charArray_to_unsigned_fun(amount_char_array);
+        printf("\ncurrent_record_amount: %d\n",current_record_amount);
+
+//        total_amount_for_same_day = total_amount_for_same_day+current_record_amount;
+        //to get day of current record:
+
+        for(int xx=index_counter; xx<current_record_counter; xx++){
+
+            if(db[to_calcu_index].trc[a].note[xx]=='!'){
+                break;
+            }
+            index_counter++;
+        }
+
+        day_char_array[0]=db[to_calcu_index].trc[a].note[index_counter+5];
+        day_char_array[1]=db[to_calcu_index].trc[a].note[index_counter+6];
+        unsigned int current_record_day= charArray_to_unsigned_fun(day_char_array);
+
+        printf("Current record day: %d\n",current_record_day);
+        if(current_record_day!=current_day_to_transfer) {
+//            total_amount_for_same_day = total_amount_for_same_day+current_record_amount;
+            break;
+        } else{
+                total_amount_for_same_day = total_amount_for_same_day+current_record_amount;
+            }
+
+        index_counter=0;
+    }
+    printf(" total amount for same day! %u",total_amount_for_same_day);
+
+    return total_amount_for_same_day;
+}
+
+
+void integer_to_char(unsigned int value){
+
+    FILE *fptr = fopen("100.txt","w");
+
+    if(fptr==NULL){
+        printf("file opening error at integer_to_char:\n");
+    } else{
+        fprintf(fptr,"%u",value);
+    }
+    fclose(fptr);
+
+    FILE *fptr2 = fopen("100.txt","r");
+    fscanf(fptr2,"%s",&int_to_char_array_data[0]);
+
+
+}
+unsigned int charArray_to_unsigned_fun(char charArray[]){
+    unsigned int data=0;
+    FILE *fptr = fopen("100.txt","w");
+
+    if(fptr==NULL){
+        printf("file opening error at integer_to_char:\n");
+    } else{
+        fprintf(fptr,"%s",charArray);
+    }
+    fclose(fptr);
+
+    FILE *fptr2 = fopen("100.txt","r");
+    fscanf(fptr2,"%u",&data);
+
+    return data;
+}
 
 #endif //DIPLEVEL1_ZOOM_ONLINE_BANK_H

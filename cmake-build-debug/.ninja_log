@@ -1,7 +1,7 @@
 # ninja log v5
 7	387	6897209020387611	CMakeFiles/nccTraining.dir/forloop.cpp.obj	902b2aca007e9894
 11	611	6907605864853032	CMakeFiles/nccTraining.dir/minProjectGame.cpp.obj	7d84dd4c741a5ffa
-499	1033	7000345821835068	nccTraining.exe	6a52fbd9aedb810d
+469	1096	7042689101783230	nccTraining.exe	bbb737bc67813a9d
 11	898	6902325989553519	CMakeFiles/nccTraining.dir/function.cpp.obj	609d7788851aec02
 7	387	6987006282152501	CMakeFiles/nccTraining.dir/unsigned_int_testing.c.obj	1677980b10c6565f
 1	649	6897217571872001	CMakeFiles/nccTraining.dir/looping-practice.cpp.obj	ec680041ae8890c2
@@ -10,7 +10,7 @@
 2	840	6908975047272601	CMakeFiles/nccTraining.dir/3-assignment(file_i_&_o).cpp.obj	5f2b312496328d6
 3	597	6912670435243827	CMakeFiles/nccTraining.dir/assignment3.cpp.obj	3579a68cfefe413d
 8	325	6911449450824955	CMakeFiles/nccTraining.dir/pointer-examples02.cpp.obj	8363bc688ac5d999
-7	496	7000324073062700	CMakeFiles/nccTraining.dir/bank_project/bank.c.obj	757e0c85d8f5671d
+8	670	7025553737303768	CMakeFiles/nccTraining.dir/bank_project/bank.c.obj	757e0c85d8f5671d
 26	764	6913639023345871	CMakeFiles/nccTraining.dir/charGenerate.cpp.obj	872404ef88a0da5e
 9	317	6923475406732446	CMakeFiles/nccTraining.dir/charGenerate.c.obj	c48df75842fe86ac
 6	1201	6932524796345508	CMakeFiles/nccTraining.dir/wordFindAssignment.c.obj	1af52ab5b74de0c3
@@ -20,17 +20,19 @@
 13	294	6931647759964380	CMakeFiles/nccTraining.dir/IntroDataStructures.cpp.obj	755c561589260e1d
 8	287	6931801761589746	CMakeFiles/nccTraining.dir/datastructure2.cpp.obj	63fcd19032a60df9
 34	703	6933082941001933	CMakeFiles/nccTraining.dir/TreeDataStructure.c.obj	a1c5053fc685dbad
-17	968	6933086188751392	CMakeFiles/nccTraining.dir/BTS.c.obj	8a616dbddf6e9fd5
+13	467	7042689095289798	CMakeFiles/nccTraining.dir/BTS.c.obj	8a616dbddf6e9fd5
 6	321	6968361116399122	CMakeFiles/nccTraining.dir/assignment6.c.obj	6908ae48ba7136a4
 12	523	6943700652956882	CMakeFiles/nccTraining.dir/jump_search.c.obj	699386cd25f2c314
 10	302	6941795385600840	CMakeFiles/nccTraining.dir/stack_data_structure.c.obj	401df1cef6606c2f
-5	1517	7000347096587818	build.ninja	61e11574362cb02d
+5	1517	7042708199135487	build.ninja	61e11574362cb02d
 8	497	7000345816407570	CMakeFiles/nccTraining.dir/time_library_lesson.c.obj	ee0cb8a582baa8a7
-3	550	7000413975168404	CMakeFiles/nccTraining.dir/bank_project/bank.c.obj	757e0c85d8f5671d
-563	1060	7000413980156070	nccTraining.exe	1b0c0e2230349f18
-12	414	7000414296521394	CMakeFiles/nccTraining.dir/bank_project/bank.c.obj	757e0c85d8f5671d
-419	909	7000414301371199	nccTraining.exe	1b0c0e2230349f18
-9	1045	7003046182582720	CMakeFiles/nccTraining.dir/bank_project/bank.c.obj	757e0c85d8f5671d
-1083	2357	7003046195158832	nccTraining.exe	1b0c0e2230349f18
-8	1426	7003049506158352	CMakeFiles/nccTraining.dir/bank_project/bank.c.obj	757e0c85d8f5671d
-1454	2544	7003049517489214	nccTraining.exe	1b0c0e2230349f18
+2	296	7042708258652501	CMakeFiles/nccTraining.dir/BST_Assignment.c.obj	7bbd80137e69a24b
+300	659	7042708262141887	nccTraining.exe	9a5553a4b8987cb5
+13	618	7042725093334398	CMakeFiles/nccTraining.dir/BST_Assignment.c.obj	7bbd80137e69a24b
+621	1114	7042725098397065	nccTraining.exe	9a5553a4b8987cb5
+10	267	7042725668041133	CMakeFiles/nccTraining.dir/BST_Assignment.c.obj	7bbd80137e69a24b
+268	708	7042725672267199	nccTraining.exe	9a5553a4b8987cb5
+9	279	7042725748516615	CMakeFiles/nccTraining.dir/BST_Assignment.c.obj	7bbd80137e69a24b
+281	742	7042725753004151	nccTraining.exe	9a5553a4b8987cb5
+6	270	7042727143222439	CMakeFiles/nccTraining.dir/BST_Assignment.c.obj	7bbd80137e69a24b
+271	828	7042727148581883	nccTraining.exe	9a5553a4b8987cb5

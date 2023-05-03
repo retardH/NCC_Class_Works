@@ -49,11 +49,11 @@ cmake_ninja_workdir = C$:/Users/hsuth/CLionProjects/nccTraining/cmake-build-debu
 
 build cmake_object_order_depends_target_nccTraining: phony || CMakeFiles/nccTraining.dir
 
-build CMakeFiles/nccTraining.dir/bank_project/bank.c.obj: C_COMPILER__nccTraining_Debug C$:/Users/hsuth/CLionProjects/nccTraining/bank_project/bank.c || cmake_object_order_depends_target_nccTraining
-  DEP_FILE = CMakeFiles\nccTraining.dir\bank_project\bank.c.obj.d
+build CMakeFiles/nccTraining.dir/BST_Assignment.c.obj: C_COMPILER__nccTraining_Debug C$:/Users/hsuth/CLionProjects/nccTraining/BST_Assignment.c || cmake_object_order_depends_target_nccTraining
+  DEP_FILE = CMakeFiles\nccTraining.dir\BST_Assignment.c.obj.d
   FLAGS = -g -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles\nccTraining.dir
-  OBJECT_FILE_DIR = CMakeFiles\nccTraining.dir\bank_project
+  OBJECT_FILE_DIR = CMakeFiles\nccTraining.dir
 
 
 # =============================================================================
@@ -63,7 +63,7 @@ build CMakeFiles/nccTraining.dir/bank_project/bank.c.obj: C_COMPILER__nccTrainin
 #############################################
 # Link the executable nccTraining.exe
 
-build nccTraining.exe: C_EXECUTABLE_LINKER__nccTraining_Debug CMakeFiles/nccTraining.dir/bank_project/bank.c.obj
+build nccTraining.exe: C_EXECUTABLE_LINKER__nccTraining_Debug CMakeFiles/nccTraining.dir/BST_Assignment.c.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\nccTraining.dir

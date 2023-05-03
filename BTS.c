@@ -15,7 +15,7 @@ struct Node{
 
 };
 
-struct Node* creatNode(int key){
+struct Node* createNode(int key){
 
     struct Node* newNode =(struct Node*)malloc(sizeof (struct Node));
     newNode->data = key;
@@ -27,7 +27,7 @@ struct Node* creatNode(int key){
 struct Node* insertNode(struct Node* root , int key){
 
     if(root == NULL){
-        return creatNode(key);
+        return createNode(key);
     }
 
     if(key < root->data){
@@ -67,7 +67,7 @@ void finder(struct Node* node , int toFindKey){
         }
 
         inorderTraversal(node->left);
-
+        printf("\n\n");
         inorderTraversal(node->right);
 
     }
